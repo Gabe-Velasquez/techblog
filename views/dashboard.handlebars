@@ -1,0 +1,20 @@
+<h2>Your Posts</h2>
+<div>
+    <button type="submit"><a href="/dashboard/new">Add Post</a></button>
+</div>
+<section>
+    {{if posts.length}}
+    {{each post in |posts|}}
+    <article class="post">
+        <div class="dashboard-container">
+            <div class="dashboard-post">
+                <h3 class="post-title"><a href="/dashboard/edit{{id}}">{{title}}</a></h3>
+                <div class="post-body"></div>
+                <p>{{{content}}}</p>
+                <p class="post-author">Post by: <span class="post-username">{{user.username}}</span> on {{format_date post.createdAt}}</p>
+            </div>
+        </div>
+    </article>
+    {{/each}}
+{{/if}}
+</section>

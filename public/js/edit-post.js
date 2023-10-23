@@ -7,7 +7,7 @@ const editFormHandler = async (event)=>{
     ];
     const response = await fetch(`/api/posts/${id}`,{
         method:'PUT',
-        body:JSON.stringify({title,entry}),
+        body:JSON.stringify({ id,title,entry }),
         headers:{ 'Content-Type': 'application/json' },
     });
     if(response.ok){
@@ -17,4 +17,4 @@ const editFormHandler = async (event)=>{
             alert('Failed to update post');
         }
 };
-document.querySelector('.edit-post-form').addEventListener('submit',editFormHandler);
+document.querySelector('#edit').addEventListener('submit',editFormHandler);

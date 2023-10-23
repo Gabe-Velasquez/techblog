@@ -1,7 +1,7 @@
 const newPostFormHandler = async (event)=>{
     event.preventDefault();
-    const title=document.querySelector('#post-title').value.trim();
-    const entry=document.querySelector('#post-entry').value.trim();
+    const title=document.querySelector('#title').value.trim();
+    const entry=document.querySelector('#entry').value.trim();
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
