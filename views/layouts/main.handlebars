@@ -17,29 +17,26 @@
       </h1>
       <nav>
         <a class="link" href="/">Home</a>
-        <a class="link" href=""></a>
+        <a class="link" href="/dashboard">Dashboard</a>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">Logout</button>
+        <a href="/" id="logout">Logout</a>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
+    <main>
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
-      
-    </footer>
-  </div>
+    
+  
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  </div>
 </body>
-
 </html>
