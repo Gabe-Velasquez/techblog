@@ -36,11 +36,11 @@ try{
                 },
             ],
     });
-    if(!postData){
-        res.status(404).end();
-    }else{
+    if(postData){
         const post = postData.get({plain:true});
         res.render('post-by-id', {post, logged_in:req.session.logged_in});
+    }else{
+        res.status(404).end();
     }
     } catch(err){
         res.status(500).json(err);

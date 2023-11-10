@@ -1,43 +1,10 @@
-<div>
+{{#each posts as |post|}}
+<article>
     <div>
-        {{!-- Login form --}}
-        <div class="card">
-            <h2>Login</h2>
-            <form class="login-form">
-                <div>
-                    <label>Username:</label>
-                    <input type="text" id="username-login" placeholder="Username"/><br/>
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input type="password" id="password-login" placeholder="Password"/><br/>
-                </div>
-                <div>
-                    <button type="submit">Login!</button>
-                </div>
-            </form>
-        </div>
-
-        {{!-- Signup Form --}}
-        <div class="card">
-            <h2>Signup</h2>
-            <form class="signup-form">
-                <div>
-                    <label>Username:</label>
-                    <input type="text" id="username-signup">
-                </div>
-
-                 <div>
-                    <label>Password:</label>
-                    <input type="text" id="password-signup">
-                </div>
-
-                <div>
-                    <button type="submit">Signup!</button>
-                </div>
-            </form>
-        </div>
+        <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
+        <p>Posted by<span>{{post.user.username}}</span></p>
+        <p class="date">{{format_date post.created_at }}</p>
+        <p>{{post.body}}</p>
     </div>
-</div>
-
-<script src="/js/login.js"></script>
+</article>
+{{/each}}
