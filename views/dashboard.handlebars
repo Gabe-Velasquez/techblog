@@ -4,13 +4,13 @@
 </div>
 <section>
     {{if posts.length}}
-    {{#each post in |posts|}}
+    {{#each posts in |post|}}
     <article class="post">
         <div class="dashboard-container">
             <div class="dashboard-post">
                 <h3 class="post-title"><a href="/dashboard/edit{{id}}">{{title}}</a></h3>
                 <div class="post-body"></div>
-                <p>{{{content}}}</p>
+                <p class="post-content">{{{content}}}</p>
                 <p class="post-author">Post by: <span class="post-username">{{user.username}}</span> on {{format_date post.createdAt}}</p>
             </div>
         </div>

@@ -2,21 +2,21 @@ const { Post } = require("../models");
 
 const postdata = [
   {
-    title: "Copy",
+    title: "USB drive",
     content:
-      `When you would like to copy a piece of text and move it to another place, all you need to do is highlight the text and press "cmd" + "c" on your keyboard `,
+      "The symbol on one side will point up if you're plugging in horizontally and if you're plugging a cable vertically, the USB symbol will face you.",
     user_id: 1,
   },
   {
-    title: "Paste",
+    title: "Reopen browser tab",
     content:
-      `With your copied text, place your cursor where you would like the text to go and press "cmd" + "v"`,
+      "Hit Ctrl+Shift+T on your PC or Command+Shift+T on your Mac to automatically reopen the tab you just closed.",
     user_id: 2,
   },
   {
-    title: "Computer Tip",
+    title: "Crop a screenshot",
     content:
-      "Always properly shut down your computer by inititalizing a shutdown from your menu instead of holding the power button to prevent issues with files not properly saving.",
+      "On a Mac, press Command + Shift + 5, and a rectangle will emerge, which you can manipulate as much as you want. On Windows 10, go to Start, enter the Search Bar, and type Snipping Tool.",
     user_id: 3,
   },
 ];
