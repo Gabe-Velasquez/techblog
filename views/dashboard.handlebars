@@ -3,15 +3,16 @@
     <button type="submit"><a href="/dashboard/new">Add Post</a></button>
 </div>
 <section>
-    {{if posts.length}}
-    {{#each posts in |post|}}
+    {{#if posts.length}}
+   {{#each posts as |post|}}
     <article class="post">
         <div class="dashboard-container">
             <div class="dashboard-post">
-                <h3 class="post-title"><a href="/dashboard/edit{{id}}">{{title}}</a></h3>
-                <div class="post-body"></div>
-                <p class="post-content">{{{content}}}</p>
-                <p class="post-author">Post by:  <span class="post-username"> {{user.username}}</span> on {{format_date post.createdAt}}</p>
+                <h3 class="post-title card-title"><a href="/dashboard/edit/{{id}}">{{title}}</a></h3>
+                <div class="post-body card-body">
+                    <p class="post-content card-body">{{{content}}}</p>
+                    <p class="post-author card-text">Post by:  <span class="post-username"> {{user.username}}</span> on {{format_date post.createdAt}}</p>
+                </div>
             </div>
         </div>
     </article>

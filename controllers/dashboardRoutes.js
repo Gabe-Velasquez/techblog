@@ -3,30 +3,31 @@ const { User, Comment, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Gather all posts
-router.get('/', withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
-        user_id: req.session.user_id, // Finds the logged in users posts only
+        user_id: req.session.user_id,
       },
       include: [
         {
           model: Comment,
           include: {
             model: User,
-            attributes: ['username'],
+            attributes: ["username"],
           },
         },
         {
           model: User,
-          attributes: ['username'],
+          attributes: ["username"],
         },
       ],
     });
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('dashboard', { posts, logged_in: req.session.logged_in });
+    console.log(posts);
+    res.render("dashboard", { posts, logged_in: req.session.logged_in });
   } catch (err) {
-    res.redirect('/');
+    res.redirect("/");
   }
 });
 
@@ -39,7 +40,7 @@ router.get('/new', (req,res)=>{
 router.get("/edit/:id", withAuth, async(req,res)=> {
     try{
         const editPost = await Post.findByPk(req.params.id);
-        if(!editPost){
+        if(editPost){
           const post=editPost.get({plain:true});
             res.render('edit-post', {post});
         }else{

@@ -1,7 +1,7 @@
 {{#each posts as |post|}}
 <article class="post">
     <div>
-        <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
+        <h3 class="card-title post-title"><a href="/post/{{post.id}}">{{post.title}}</a></h3>
         <p class="post-content">{{content}}</p>
         <p>Posted by <span>{{post.user.username}}</span></p>
         <p class="date">Post created on: {{ format_date createdAt }}</p>

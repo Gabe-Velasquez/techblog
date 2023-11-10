@@ -1,7 +1,7 @@
 const newPostFormHandler = async (event)=>{
     event.preventDefault();
-    const title=document.querySelector('#title').value.trim();
-    const content=document.querySelector('#entry').value.trim();
+    const title=document.querySelector('#post-title').value.trim();
+    const content=document.querySelector('#post-content').value.trim();
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
@@ -12,7 +12,7 @@ const newPostFormHandler = async (event)=>{
     if (response.ok){
         document.location.replace("/dashboard");
     }else{
-        alert(response);
+        alert(response.statusText);
     }
 };
 
