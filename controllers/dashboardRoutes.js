@@ -3,7 +3,7 @@ const { User, Comment, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Gather all posts
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
@@ -40,11 +40,10 @@ router.get("/edit/:id", withAuth, async(req,res)=> {
     try{
         const editPost = await Post.findByPk(req.params.id);
         if(!editPost){
-            res.status(404).end();
-            return;
-        }else{
-            const post=editPost.get({plain:true});
+          const post=editPost.get({plain:true});
             res.render('edit-post', {post});
+        }else{
+          res.status(404).end();
         }
     }catch(err){
         res.redirect('login');

@@ -10,8 +10,8 @@ router.post('/', async (req,res)=>{
         });
         req.session.save(()=>{
             req.session.user_id = newUser.id;
-            req.session.loggedIn = true;
             req.session.username = newUser.username;
+            req.session.loggedIn = true;
             res.status(200).json(newUser);
         });
     }catch(err){
@@ -33,7 +33,7 @@ router.post('/login', async (req,res) => {
             return;
         }
         
-        const validPassword = await userData.checkPassword(req.body.password);
+        const validPassword = userData.checkPassword(req.body.password);
         if (!validPassword){
             res.status(400).json({
                 message: 'No user found!'
@@ -55,7 +55,7 @@ router.post('/login', async (req,res) => {
 });
 // Logout Route
 router.post('/logout', (req,res)=>{
-    if (req.session.loggedIn){
+    if (req.session.logged_in){
         req.session.destroy(()=>{
         res.status(204).end();
         });
